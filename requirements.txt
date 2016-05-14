@@ -1,1 +1,2 @@
 python-dateutil==2.5.3
+CherryPy==5.4.0
