@@ -16,10 +16,10 @@ class AnalyticsService:
             for item, dates in list(data.items()):
                 res_dates[item] = [parse(d) for d in dates]
 
-            return json.dumps(
-                predict(
-                    res_dates,
-                    algo=algo,
-                    current_date=parse(current_date)
-                )
+            predict_res = predict(
+                res_dates,
+                algo=algo,
+                current_date=parse(current_date)
             )
+            ret = [{'key': k, 'value': v} for k, v in predict_res.items()]
+            return json.dumps(ret)
